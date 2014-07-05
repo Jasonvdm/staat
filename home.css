@@ -1,0 +1,28 @@
+#home { 
+  height: 458px; 
+  position: absolute; 
+  text-align: center; 
+  top: 250px; 
+  width: 100%; 
+  font-size: 80px;
+  color: white;
+  z-index: 1;
+}
+
+.bgimage1{
+   background: url("snowboard.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position:fixed;
+}
+
+.bgimage2{
+   background: url("bike.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position:fixed;
+}

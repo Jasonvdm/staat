@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+	
+	<script src="components/jquery/dist/jquery.js"></script>
+
+	<link href="home.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="master.css" rel="stylesheet" type="text/css" media="all" />
+
+	
+
+
+</head>
+<body style="margin:0px; height:100%;overflow: auto;" >
+	<div class="bgimage1" style="display:none">
+	</div>
+	<div class="bgimage2">
+	</div>
+	
+	<div id="content" style="height:100%">
+		<div class="container" style="height:100%">
+			<button id="test" style="width:200px; z-index:1; position:absolute">asda</button>
+			<div class="row" >
+				<div class="form-group span8 offset2 " style="position:absolute;top:500px; z-index:1">
+					<div class="row">
+						<input type="text" class="span6 form-control " style="float:left; font-size:18px">
+						<a href="#fakelink" class="span2 btn btn-lg btn-primary">Rate Me</a>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div style="height:100%; display:none" id="element" data-type="background" data-speed="5" class="pages">
+
+	</div>
+	<div style="position:absolute; width:100%">
+	<div style="height:100%; display:" id="element2" data-type="background" data-speed="5" class="pages">
+	</div>
+	<div> -->
+
+
+
+		<script>
+
+		$(document).ready(function(){
+			$('#element, #element2, .bgimage1, .bgimage2').css({ 
+				width: $(window).innerWidth(),
+				height: $(window).innerHeight()
+
+			});    
+
+	
+	// $('#element').fadeTo('slow', 0.3, function(){
+	// }).fadeTo('slow', 1);
+
+		$( "#test" ).click(function() {
+			$('.bgimage2').fadeOut(2000, function(){
+
+			});
+			$('.bgimage1').fadeIn(2000);
+
+ //  $('#element').fadeOut('slow', 1, function() {
+ //    $('#element2').fadeIn('slow');
+	// });
+	});
+
+	});
+
+		</script>
+
+
+	</body>
+	</html>
