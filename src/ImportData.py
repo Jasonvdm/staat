@@ -4,7 +4,13 @@ import sys
 
 def get_sentiment_dictionary():
 	sentiment_file = open("../data/inquirerbasic.csv", 'rU')
-	return csv.DictReader(sentiment_file)
+	reader = csv.DictReader(sentiment_file)
+	sentiment_dict = dict()
+
+	for row in reader:
+		key = row['Entry'].lower()
+		sentiment_dict[key] = row
+	return sentiment_dict
 
 
 def import_tweets():
@@ -39,4 +45,4 @@ It then processes each file within that directory and extracts any
 matching e-mails or phone numbers and compares them to the gold file
 """
 if __name__ == '__main__':
-    get_tweets()
+    get_sentiment_dictionary()
