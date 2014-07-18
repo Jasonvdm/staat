@@ -11,7 +11,7 @@ def analyze_topic(topic):
 	for tweet in tweets:
 		for word in tweet:
 			total_num_words+=1
-			if "Positiv" in sentiment_dict[word]: num_pos+=1
+			if sentiment_dict[word.lower]["Positiv"] != '': num_pos+=1
 	return num_pos/total_num_words
 
 if __name__ == '__main__':
