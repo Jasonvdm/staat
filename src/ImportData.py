@@ -1,6 +1,7 @@
 import csv
 import re
 import sys
+import twitter
 
 def get_sentiment_dictionary():
 	sentiment_file = open("../data/inquirerbasic.csv", 'rU')
@@ -26,6 +27,20 @@ def import_tweets():
 	return tweet_dictionary
 	
 
+def pull_tweets(hashtag):
+	api = twitter.Api(consumer_key='AHVsVuYleKQGpcE4EzZONZ4TF',
+                      consumer_secret='SBrOKeoM2thuZW7FUQcXSZQA5Qx6qAIdAyioBB3hWVMGpJ2NWJ',
+                      access_token_key='45966388-kh2vJceOPuyTAqG2IF88ca21zZdUfhQptT9TWH0dq',
+                      access_token_secret='0Imzz1yic0XSIuhgfLWeQVzWSUxigmLVeGzcgkYyd57hX')
+
+	search = api.GetSearch(term=hashtag, lang='en', result_type='recent', count=1000, max_id='')
+	final_tweets = []
+	for t in search:
+ 		tweet_text =  curate_line(t.text.encode('utf-8'))
+ 		final_tweets.append(tweet_text)
+ 	return final_tweets
+ 	
+
 
 
 def get_tweets(hashtag="#mh17"):
@@ -45,4 +60,4 @@ It then processes each file within that directory and extracts any
 matching e-mails or phone numbers and compares them to the gold file
 """
 if __name__ == '__main__':
-    get_sentiment_dictionary()
+    pull_tweets()

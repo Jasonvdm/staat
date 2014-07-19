@@ -4,7 +4,7 @@ import sys
 
 def analyze_topic(topic):
 	sentiment_dict = ImportData.get_sentiment_dictionary()
-	tweets = ImportData.get_tweets(topic)
+	tweets = ImportData.pull_tweets(topic)
 	num_pos = 0;
 	total_num_words = 0;
 	for tweet in tweets:
