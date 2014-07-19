@@ -10,6 +10,7 @@ def analyze_topic(topic):
 	total_num_words = 0;
 	for tweet in tweets:
 		has_positive = False
+		has_negative = False
 		for word in tweet.split():
 			word = word.lower()
 			if word in sentiment_dict:
@@ -17,8 +18,8 @@ def analyze_topic(topic):
 				if sentiment_dict[word]["Positiv"] != '': 
 					num_pos+=1
 					has_positive = True
-					print word
 				if sentiment_dict[word]["Negativ"] != '':
+					has_negative = True
 					num_neg+=1
 			else:
 				for i in range(2):
@@ -28,10 +29,14 @@ def analyze_topic(topic):
 						if sentiment_dict[new_word]["Positiv"] != '': 
 							num_pos+=1
 							has_positive = True
-							print new_word
 						if sentiment_dict[new_word]["Negativ"] != '': 
+							has_negative = True
 							num_neg+=1
-		if has_positive: print tweet
+		if has_positive: 
+			print "Positive: " + tweet + "\n"
+		if has_negative: 
+			print "Negative: " + tweet + "\n"
+
 	print num_neg
 	print num_pos
 	print float(num_pos)/float(num_neg + num_pos)
