@@ -4,7 +4,6 @@ import sys
 
 def analyze_topic(topic):
 	sentiment_dict = ImportData.get_sentiment_dictionary()
-	topic = "#"+topic
 	tweets = ImportData.get_tweets(topic)
 	num_pos = 0;
 	total_num_words = 0;
@@ -34,7 +33,11 @@ def analyze_topic(topic):
 	return 
 
 if __name__ == '__main__':
-    if (len(sys.argv) != 2):
-        print 'usage:\tSpamLord.py <topic>'
-        sys.exit(0)
-    analyze_topic(sys.argv[1])
+	if (len(sys.argv) < 2):
+	    print 'usage:\tSpamLord.py <topics>'
+	    sys.exit(0)
+	topic = ""
+	for i in range(1,len(sys.argv)):topic += " #" + sys.argv[i]
+	topic = topic[1:]
+	print topic
+	analyze_topic(topic)
