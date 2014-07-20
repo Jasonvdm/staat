@@ -28,12 +28,14 @@ def import_tweets():
 	
 
 def pull_tweets(hashtag):
+	print hashtag
 	api = twitter.Api(consumer_key='AHVsVuYleKQGpcE4EzZONZ4TF',
                       consumer_secret='SBrOKeoM2thuZW7FUQcXSZQA5Qx6qAIdAyioBB3hWVMGpJ2NWJ',
                       access_token_key='45966388-kh2vJceOPuyTAqG2IF88ca21zZdUfhQptT9TWH0dq',
                       access_token_secret='0Imzz1yic0XSIuhgfLWeQVzWSUxigmLVeGzcgkYyd57hX')
 
-	search = api.GetSearch(term=hashtag, lang='en', result_type='recent', count=1, max_id='')
+
+	search = api.GetSearch(term=hashtag, lang='en', result_type='recent', count=5, max_id='')
 	final_tweets = []
 	for t in search:
 		print t
