@@ -29,7 +29,7 @@ def import_tweets():
 	
 
 def pull_tweets(hashtag):
-	print hashtag
+	sentiment_dict = get_sentiment_dictionary()
 	api = twitter.Api(consumer_key='AHVsVuYleKQGpcE4EzZONZ4TF',
                       consumer_secret='SBrOKeoM2thuZW7FUQcXSZQA5Qx6qAIdAyioBB3hWVMGpJ2NWJ',
                       access_token_key='45966388-kh2vJceOPuyTAqG2IF88ca21zZdUfhQptT9TWH0dq',
@@ -38,7 +38,7 @@ def pull_tweets(hashtag):
 	search = api.GetSearch(term=hashtag, lang='en', result_type='recent', count=5, max_id='')
 	final_tweets = []
 	for tweet in search:
-		final_tweets.append(Tweet(tweet.id, text.text.encode('utf-8'), tweet.retweet_count, tweet.favorited, tweet.user.user_location))
+		final_tweets.append(Tweet.Tweet(tweet.id, tweet.text.encode('utf-8'), tweet.retweet_count, tweet.favorited, tweet.user.location, sentiment_dict))
 	return final_tweets
 	# final_tweets = []
 	# for t in search:

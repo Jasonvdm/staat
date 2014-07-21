@@ -3,11 +3,15 @@ import sys
 
 
 def analyze_topic(topic):
+	print "ANALYZING TOPIC: " + topic
+	print "------------------------------"
 	tweets = ImportData.pull_tweets(topic)
 	score = 0
 	for tweet in tweets:
 		score += tweet.get_score()
 	score /= len(tweets)
+	print "# of Tweets: " + str(len(tweets))
+	print "Tweet Score: " + str(score*100) + "% positve. \n"
 
 if __name__ == '__main__':
 	if (len(sys.argv) < 2):
@@ -16,5 +20,4 @@ if __name__ == '__main__':
 	topic = ""
 	for i in range(1,len(sys.argv)):topic += " " + sys.argv[i]
 	topic = topic[1:]
-	print topic
 	analyze_topic(topic)
