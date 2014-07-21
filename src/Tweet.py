@@ -24,10 +24,12 @@ class Tweet:
     	return self.score
 
 
-    def calculate_tweet_store():
+    def calculate_tweet_score():
+        return self.num_pos()/float(self.num_pos + self.num_neg)
 
 
     def parse_tweet():
+<<<<<<< HEAD
     	for word in self.text.split():
     		if is_positive(word):
     			self.pos_words.append(word)
@@ -35,3 +37,28 @@ class Tweet:
     		if is_negative(word):
     			self.neg_words.append(word)
     			self.num_neg += 1
+=======
+
+
+    def is_positive(word):
+        if word in sentiment_dict: 
+            if sentiment_dict[word]["Positiv"] != '': 
+                return True
+        else:
+            new_word = word +"#" + str(1)
+                if new_word in sentiment_dict:
+                    if sentiment_dict[new_word]["Positiv"] != '': 
+                        return True
+        return False
+
+     def is_negative(word):
+        if word in sentiment_dict: 
+            if sentiment_dict[word]["Negativ"] != '': 
+                return True
+        else:
+            new_word = word +"#" + str(1)
+                if new_word in sentiment_dict:
+                    if sentiment_dict[new_word]["Negativ"] != '': 
+                        return True
+        return False
+>>>>>>> 32f569b4f6bc07c4e4d8041490ea9e040c37ef3d
