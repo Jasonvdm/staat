@@ -19,7 +19,31 @@ class Tweet:
          self.tweet_polarity = Polarity.Neutral
 
 
-    def calculate_tweet_store():
+    def calculate_tweet_score():
+        return self.num_pos()/float(self.num_pos + self.num_neg)
 
 
     def parse_tweet():
+
+
+    def is_positive(word):
+        if word in sentiment_dict: 
+            if sentiment_dict[word]["Positiv"] != '': 
+                return True
+        else:
+            new_word = word +"#" + str(1)
+                if new_word in sentiment_dict:
+                    if sentiment_dict[new_word]["Positiv"] != '': 
+                        return True
+        return False
+
+     def is_negative(word):
+        if word in sentiment_dict: 
+            if sentiment_dict[word]["Negativ"] != '': 
+                return True
+        else:
+            new_word = word +"#" + str(1)
+                if new_word in sentiment_dict:
+                    if sentiment_dict[new_word]["Negativ"] != '': 
+                        return True
+        return False
