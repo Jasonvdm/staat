@@ -29,7 +29,6 @@ class Tweet:
 
 
     def parse_tweet():
-<<<<<<< HEAD
     	for word in self.text.split():
     		if is_positive(word):
     			self.pos_words.append(word)
@@ -37,7 +36,6 @@ class Tweet:
     		if is_negative(word):
     			self.neg_words.append(word)
     			self.num_neg += 1
-=======
 
 
     def is_positive(word):
@@ -61,4 +59,3 @@ class Tweet:
                     if sentiment_dict[new_word]["Negativ"] != '': 
                         return True
         return False
->>>>>>> 32f569b4f6bc07c4e4d8041490ea9e040c37ef3d

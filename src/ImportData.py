@@ -2,6 +2,7 @@ import csv
 import re
 import sys
 import twitter
+import Tweet
 
 def get_sentiment_dictionary():
 	sentiment_file = open("../data/inquirerbasic.csv", 'rU')
@@ -34,7 +35,11 @@ def pull_tweets(hashtag):
                       access_token_key='45966388-kh2vJceOPuyTAqG2IF88ca21zZdUfhQptT9TWH0dq',
                       access_token_secret='0Imzz1yic0XSIuhgfLWeQVzWSUxigmLVeGzcgkYyd57hX')
 
-	return api.GetSearch(term=hashtag, lang='en', result_type='recent', count=5, max_id='')
+	search = api.GetSearch(term=hashtag, lang='en', result_type='recent', count=5, max_id='')
+	final_tweets = []
+	for tweet in search:
+		final_tweets.append(Tweet(tweet.id, text.text.encode('utf-8'), tweet.retweet_count, tweet.favorited, tweet.user.user_location))
+	return final_tweets
 	# final_tweets = []
 	# for t in search:
 	# 	print t
