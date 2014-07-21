@@ -4,6 +4,10 @@ import sys
 
 def analyze_topic(topic):
 	tweets = ImportData.pull_tweets(topic)
+	score = 0
+	for tweet in tweets:
+		score += tweet.get_score()
+	score /= len(tweets)
 
 if __name__ == '__main__':
 	if (len(sys.argv) < 2):

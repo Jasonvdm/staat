@@ -20,16 +20,17 @@ class Tweet:
          self.neg_words = []
          self.tweet_polarity = Polarity.Neutral
 
-    def get_score():
+    def get_score(self):
     	return self.score
 
 
-    def calculate_tweet_score():
-        return self.num_pos()/float(self.num_pos + self.num_neg)
+    def calculate_tweet_score(self):
+        self.score = self.num_pos()/float(self.num_pos + self.num_neg)
+        if self.score > 0.5: self.tweet_polarity = Polarity.Positive
+        if self.score < 0.5: self.tweet_polarity = Polarity.Negative 
 
 
-    def parse_tweet():
-<<<<<<< HEAD
+    def parse_tweet(self):
     	for word in self.text.split():
     		if is_positive(word):
     			self.pos_words.append(word)
@@ -37,10 +38,9 @@ class Tweet:
     		if is_negative(word):
     			self.neg_words.append(word)
     			self.num_neg += 1
-=======
 
 
-    def is_positive(word):
+    def is_positive(self,word):
         if word in sentiment_dict: 
             if sentiment_dict[word]["Positiv"] != '': 
                 return True
@@ -51,7 +51,7 @@ class Tweet:
                         return True
         return False
 
-     def is_negative(word):
+     def is_negative(self,word):
         if word in sentiment_dict: 
             if sentiment_dict[word]["Negativ"] != '': 
                 return True
@@ -61,4 +61,3 @@ class Tweet:
                     if sentiment_dict[new_word]["Negativ"] != '': 
                         return True
         return False
->>>>>>> 32f569b4f6bc07c4e4d8041490ea9e040c37ef3d
