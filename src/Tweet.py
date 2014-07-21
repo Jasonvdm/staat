@@ -9,7 +9,7 @@ class Tweet:
             self.favorited = favorited
             self.user_location = user_location
 
-            self.score = 0
+            self.score = 0.5
             self.num_pos = 0
             self.num_neg = 0
             self.pos_words = []
@@ -24,6 +24,15 @@ class Tweet:
 
         def get_score(self):
         	return self.score
+
+        def get_text(self):
+            return self.text
+
+        def get_positive_words(self):
+            return self.pos_words
+
+        def get_negative_words(self):
+            return self.neg_words
 
 
         def calculate_tweet_score(self):

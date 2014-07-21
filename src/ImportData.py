@@ -35,7 +35,7 @@ def pull_tweets(hashtag):
                       access_token_key='45966388-kh2vJceOPuyTAqG2IF88ca21zZdUfhQptT9TWH0dq',
                       access_token_secret='0Imzz1yic0XSIuhgfLWeQVzWSUxigmLVeGzcgkYyd57hX')
 
-	search = api.GetSearch(term=hashtag, lang='en', result_type='recent', count=5, max_id='')
+	search = api.GetSearch(term=hashtag, lang='en', result_type='recent', count=100, max_id='')
 	final_tweets = []
 	for tweet in search:
 		final_tweets.append(Tweet.Tweet(tweet.id, tweet.text.encode('utf-8'), tweet.retweet_count, tweet.favorited, tweet.user.location, sentiment_dict))
